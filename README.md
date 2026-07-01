@@ -80,14 +80,42 @@ readxl
 ---
 ## Model Performance
 
+| Metric | OLS | MGWR |
+|:--------|----:|------:|
+| AICc | 233.00 | **218.46** |
+| R² | 0.1495 | **0.5988** |
+| RSS | 172.13 | **81.18** |
+
+MGWR outperformed the global OLS model, achieving lower AICc and RSS values while substantially improving the coefficient of determination (R²).
+
 ---
 
 ## Outputs
 - Spatial Poverty Map
+  <p align="center">
+  <img src="image/spasialppm.png" width="700">
+</p>
+
+<p align="center">
+<b>Figure 1.</b> Spatial Distribution of Poverty in Kalimantan
+</p>
+
+The map illustrates the spatial distribution of poverty across districts and cities in Kalimantan. Darker colors indicate higher poverty rates, revealing substantial spatial heterogeneity that motivates the use of spatial regression methods such as MGWR.
+
 - Moran's I Analysis
 - OLS Regression Summary
 - MGWR Model
 - Local Coefficient Maps
+  <p align="center">
+<img src="image/tpt.png" width="30%">
+<img src="image/rls.png" width="30%">
+<img src="image/pdrb.png" width="30%">
+</p>
+
+<p align="center">
+<b>Figure 2.</b> Local coefficients estimated by MGWR
+</p>
+
 - Significant Variable Classification
 - Policy Recommendation
 
