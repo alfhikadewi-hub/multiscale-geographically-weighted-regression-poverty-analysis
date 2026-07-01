@@ -1,19 +1,28 @@
 # Spatial Poverty Analysis in Kalimantan using MGWR
 
 ## Overview
-This project analyzes spatial heterogeneity of poverty factors across districts/cities in Kalimantan using Multiscale Geographically Weighted Regression (MGWR).
-
-The analysis investigates how unemployment, education, and regional economic indicators affect poverty differently across regions.
+Poverty remains one of the major socio-economic challenges in Kalimantan. Although overall development has improved, poverty levels still vary considerably across districts and cities, indicating spatial heterogeneity. This project applies Multiscale Geographically Weighted Regression (MGWR) to investigate how education, unemployment, and regional economic performance influence poverty differently across locations. The study is based on data from 56 districts/cities in Kalimantan (2025).
 
 ---
 
 ## Objectives
-- Analyze spatial patterns of poverty in Kalimantan
-- Detect spatial autocorrelation using Moran’s I
-- Compare global and local regression approaches
-- Identify locally significant poverty factors using MGWR
+- Explore the spatial distribution of poverty across Kalimantan.
+- Detect spatial autocorrelation using Moran's I.
+- Compare Ordinary Least Squares (OLS) and MGWR models.
+- Estimate local regression coefficients for each district.
+- Identify region-specific determinants of poverty.
+- Provide evidence-based policy recommendations.
 
 ---
+
+## Dataset
+### Source
+- Central Bureau of Statistics Republic of Indonesia (BPS)
+- Administrative boundary shapefile of Kalimantan
+### Observation Unit
+- 56 districts/cities
+### Year
+- 2025
 
 ## Variables
 
@@ -27,19 +36,27 @@ The analysis investigates how unemployment, education, and regional economic ind
 
 ---
 
-## Methods
-The analysis includes:
+## Methodology
+The analysis follows the workflow below:
+```mermaid
+flowchart LR
+    A[Data Collection] --> B[Data Cleaning and Integration]
+    B --> C[Exploratory Spatial Analysis]
+    C --> D[OLS]
+    D --> E[Spatial Weight Matrix]
+    E --> F[Moran Test]
+    F --> G[MGWR Modeling]
+    G --> H[Model Evaluation]
+    H --> I[Local Coefficient Mapping]
+```
 
-1. Spatial data preprocessing
-2. Data integration using `sf`
-3. Ordinary Least Squares (OLS)
-4. Spatial autocorrelation test (Moran’s I)
-5. Multiscale Geographically Weighted Regression (MGWR)
-6. Local coefficient visualization
 
 ---
 
-## Libraries
+## Tools & Libraries
+### Programming Language
+RStudio
+### Libraries
 ```r
 sf
 spdep
@@ -51,28 +68,29 @@ lmtest
 AICcmodavg
 readxl
 ```
+---
+
+## Key Findings
+- Significant positive spatial autocorrelation was detected using Moran's I (0.1718, p = 0.0187), indicating that neighboring districts tend to exhibit similar poverty levels.
+- MGWR substantially outperformed the global OLS model.
+- Average Years of Schooling (RLS) consistently showed a negative relationship with poverty.
+- The effects of unemployment (TPT) and regional GDP (PDRB) varied across districts.
+- Local regression coefficients revealed substantial spatial heterogeneity, supporting the use of MGWR for regional poverty analysis.
+  
+---
+## Model Performance
 
 ---
 
 ## Outputs
-- Moran’s I statistics
-- OLS model summary
-- MGWR local coefficients
-- Significance mapping
-- Spatial visualization of local effects
+- Spatial Poverty Map
+- Moran's I Analysis
+- OLS Regression Summary
+- MGWR Model
+- Local Coefficient Maps
+- Significant Variable Classification
+- Policy Recommendation
 
 ---
 
-## Visualization
-This project produces spatial coefficient maps for:
-- TPT
-- RLS
-- PDRB
 
-using `ggplot2` and spatial polygon data.
-
----
-
-## Author
-A. Alfhika Aulia Dewi
-Statistics Student | Data, Machine Learning, and AI Enthusiast
